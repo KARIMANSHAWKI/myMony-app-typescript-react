@@ -3,12 +3,12 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBKWmOeQwDW9Zem1XNl3u05CVUtJxN-WDc',
-  authDomain: 'mymony-7b61c.firebaseapp.com',
-  projectId: 'mymony-7b61c',
-  storageBucket: 'mymony-7b61c.appspot.com',
-  messagingSenderId: '965957955844',
-  appId: '1:965957955844:web:e659d5fa0e95917cbba051',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // init firebase
