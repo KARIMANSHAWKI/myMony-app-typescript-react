@@ -1,4 +1,5 @@
 import { useState, FC } from 'react'
+import { useSignup } from '../../hooks/useSignup';
 
 // styles
 import  './signup.css';
@@ -7,10 +8,11 @@ const Signup: FC = () =>{
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [displayName, setDisplayName] = useState('')
+  const {signup, error, isPending} = useSignup();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(email, password, displayName)
+    signup({email, password, displayName})
   }
 
   return (
@@ -40,7 +42,9 @@ const Signup: FC = () =>{
           value={displayName}
         />
       </label>
-      <button className="btn">Sign up</button>
+      {!isPending &&  <button className="btn">Sign up</button>}
+      {isPending &&  <button className="btn" disabled>loading</button>}
+     
     </form>
   )
 }
